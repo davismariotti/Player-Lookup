@@ -1,6 +1,6 @@
 #Player Lookup Config
 
-#Disable Info: Say i disabled gamemode then it wouldn't show up when i do /plookup <name> (Only applys to ingame users (ATM))
+#Disable Info: Say i disabled gamemode then it wouldn't show up when i do /plookup <name>
 Flying:
 Op: true
 Whitelisted: true
@@ -10,3 +10,6 @@ Sneaking: true
 Sprinting: true
 Gamemode: true
 Ip: true #Override the permission.
+
+#If this is true then the above options will work on console
+DisabledConsole: false

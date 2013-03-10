@@ -55,7 +55,7 @@ sender.sendMessage(cprefix + "Ip: " + ChatColor.DARK_BLUE + targetPlayer.getAddr
 sender.sendMessage(ChatColor.RED + "You don't have permissions to view this players ip.");
 }
 }
-sender.sendMessage(cprefix + "If any info is missing that it is disabled in the config.");
+sender.sendMessage(cprefix + "If any info is missing then it is disabled in the config.");
 }catch(Exception e){
 sender.sendMessage(cprefix + args[0] + " cannot be found! Please make sure the player is online.");
 }
@@ -69,21 +69,49 @@ sender.sendMessage(ChatColor.RED + "You don't have permission.");
 }	
 if(!(sender instanceof Player)){
 if(args.length == 1){
-	try{
-		Player targetPlayer = Bukkit.getServer().getPlayer(args[0]);
-		sender.sendMessage("----=[" + targetPlayer.getName() + "]=----");
-		sender.sendMessage("[Info] Flying: " + targetPlayer.isFlying());
-		sender.sendMessage("[Info] Op: " + targetPlayer.isOp());
-		sender.sendMessage("[Info] Whitelisted: " + targetPlayer.isWhitelisted());
-		sender.sendMessage("[Info] Dead: " + targetPlayer.isDead());
-		sender.sendMessage("[Info] Sleeping: " + targetPlayer.isSleeping());
-		sender.sendMessage("[Info] Sneaking: " + targetPlayer.isSneaking());
-		sender.sendMessage("[Info] Sprinting: " + targetPlayer.isSprinting());
-		sender.sendMessage("[Info] Gamemode: " + targetPlayer.getGameMode().toString().toLowerCase());
-		sender.sendMessage("[Info] Ip: " + targetPlayer.getAddress().getAddress().getHostAddress());
-		}catch(Exception e){
-		sender.sendMessage(args[0] + " cannot be found! Please make sure the player is online.");
-		}
+try{
+Player targetPlayer = Bukkit.getServer().getPlayer(args[0]);
+if(!(plugin.getConfig().getBoolean("DisabledConsole"))){
+sender.sendMessage("----=[" + targetPlayer.getName() + "]=----");
+sender.sendMessage("[Info] Flying: " + targetPlayer.isFlying());
+sender.sendMessage("[Info] Op: " + targetPlayer.isOp());
+sender.sendMessage("[Info] Whitelisted: " + targetPlayer.isWhitelisted());
+sender.sendMessage("[Info] Dead: " + targetPlayer.isDead());
+sender.sendMessage("[Info] Sleeping: " + targetPlayer.isSleeping());
+sender.sendMessage("[Info] Sneaking: " + targetPlayer.isSneaking());
+sender.sendMessage("[Info] Sprinting: " + targetPlayer.isSprinting());
+sender.sendMessage("[Info] Gamemode: " + targetPlayer.getGameMode().toString().toLowerCase());
+sender.sendMessage("[Info] Ip: " + targetPlayer.getAddress().getAddress().getHostAddress());	
+}else{
+sender.sendMessage("----=[" + targetPlayer.getName() + "]=----");
+if(plugin.getConfig().getBoolean("Flying") == true){
+sender.sendMessage("[Info] Flying: " + targetPlayer.isFlying());
+}
+if(plugin.getConfig().getBoolean("Op") == true){
+sender.sendMessage("[Info] Op: " + targetPlayer.isOp());
+}if(plugin.getConfig().getBoolean("Whitelisted") == true){
+sender.sendMessage("[Info] Whitelisted: " + targetPlayer.isWhitelisted());
+}
+sender.sendMessage("[Info] Dead: " + targetPlayer.isDead());
+if(plugin.getConfig().getBoolean("Sleeping") == true){
+sender.sendMessage("[Info] Sleeping: " + targetPlayer.isSleeping());
+}
+if(plugin.getConfig().getBoolean("Sneaking") == true){
+sender.sendMessage("[Info] Sneaking: " + targetPlayer.isSneaking());
+}
+if(plugin.getConfig().getBoolean("Sprinting") == true){
+sender.sendMessage("[Info] Sprinting: " + targetPlayer.isSprinting());
+}
+if(plugin.getConfig().getBoolean("Gamemode") == true){
+sender.sendMessage("[Info] Gamemode: " + targetPlayer.getGameMode().toString().toLowerCase());
+}
+if(plugin.getConfig().getBoolean("Ip") == true){
+sender.sendMessage("[Info] Ip: " + targetPlayer.getAddress().getAddress().getHostAddress());
+}
+}
+}catch(Exception e){
+sender.sendMessage(args[0] + " cannot be found! Please make sure the player is online.");
+}
 }else{
 sender.sendMessage("You forgot the players name!");
 sender.sendMessage("/plookup <name>");	
