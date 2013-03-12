@@ -9,9 +9,7 @@ import com.breezeyboy.plookup.commands.plookup;
 import com.breezeyboy.plookup.metrics.Metrics;
 
 public class main extends JavaPlugin{
-public PluginDescriptionFile pdfile = this.getDescription();
 public String prefix = "[PlayerLookup] ";
-public String updatemsg;
 
 public void onEnable(){
 System.out.println(prefix + "Plugin loaded successfully. (v1.2)");
