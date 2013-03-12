@@ -2,7 +2,6 @@ package com.breezeyboy.plookup;
 
 import java.io.IOException;
 
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.breezeyboy.plookup.commands.plookup;
