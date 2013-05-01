@@ -1,8 +1,21 @@
-author: breezeyboy
+authors: [breezeyboy, gomeow]
 description: A plugin to lookup players
 name: PlayerLookup
 version: 1.2
-main: com.breezeyboy.plookup.main
+main: com.breezeyboy.plookup.PlayerLookup
+
 commands:
-    plookup:
-        description: Looks up the given player
+  plookup:
+    description: Looks up the given player
+    permission: plookup.lookup
+
+permissions:
+  plookup.*:
+    description: Gives all Player Lookup permissions.
+    children:
+      plookup.lookup: true
+      plookup.ip: true
+  plookup.lookup:
+    description: Look up info on a player.
+  plookup.ip:
+    description: Allows the player to see another player's ip
